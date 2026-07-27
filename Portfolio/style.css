@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+@import url('skills.css');
+@import url('experience.css');
+@import url('project.css');
+@import url('contact.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    background-color: #FAF8F5;
+    color: #2a241b;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 9%;
+    background-color: #FAF8F5;
+    border-bottom: 1px solid rgba(202, 163, 117, 0.15);
+    box-shadow: 0 4px 20px rgba(202, 163, 117, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 3rem;
+    color: #caa375;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+nav a {
+    font-size: 1.8rem;
+    color: #2a241b;
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+nav a:hover,
+nav a.active {
+    color: #caa375;
+    border-bottom: 3px solid #caa375;
+}
+
+@media(max-width:995px) {
+    nav {
+        position: absolute;
+        display: none;
+        top: 0;
+        right: 0;
+        width: 40%;
+        border-left: 3px solid #caa375;
+        border-bottom: 3px solid #caa375;
+        border-bottom-left-radius: 2rem;
+        padding: 1rem solid;
+        background-color: #F0EBE1;
+        border-top: 0.1rem solid rgba(0,0,0,0.1);
+    }
+
+    nav.active {
+        display: block;
+    }
+
+    nav a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+        color: #2a241b;
+    }
+
+    nav a:hover,
+    nav a.active {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border-bottom: 0.5rem solid #caa375;
+    }
+}
+
+section {
+    min-height: 100vh;
+    padding: 5rem 9% 5rem;
+}
+
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+    background-color: #FAF8F5;
+}
+
+.home .home-content h1 {
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+span {
+    color: #caa375;
+}
+
+.home-content h3 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.home-content p {
+    font-size: 1.6rem;
+    color: #5c5243;
+    line-height: 1.6;
+}
+
+.home-img {
+    border-radius: 50%;
+}
+
+.home-img img {
+    position: relative;
+    width: 32vw;
+    border-radius: 50%;
+    box-shadow: 0 0 25px #caa375;
+    cursor: pointer;
+    transition: 0.2s linear;
+}
+
+.home-img img:hover {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: transparent;
+    border: 0.2rem solid #caa375;
+    font-size: 2rem;
+    border-radius: 50%;
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.3s ease;
+    color: #caa375;
+}
+
+.social-icons a:hover {
+    color: #FAF8F5;
+    transform: scale(1.3) translateY(-5px);
+    background-color: #caa375;
+    box-shadow: 0 0 25px #caa375;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background-color: #FAF8F5;
+    border-radius: 4rem;
+    font-size: 1.6rem;
+    color: #caa375;
+    letter-spacing: 0.3rem;
+    font-weight: 600;
+    border: 2px solid #caa375;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: scale3d(1.03);
+    background-color: #caa375;
+    color: #FAF8F5;
+    box-shadow: 0 0 25px #caa375;
+}
+
+.typing-text {
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 280px;
+}
+
+.typing-text span {
+    position: relative;
+}
+
+.typing-text span::before {
+    content: "Web Developer";
+    color: #caa375;
+    animation: words 12s infinite;
+}
+
+.typing-text span::after {
+    content: "";
+    background-color: #FAF8F5;
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    border-left: 3px solid #FAF8F5;
+    right: -8;
+    animation: cursor 0.6s infinite;
+}
+
+@keyframes cursor {
+    to {
+        border-left: 3px solid #caa375;
+    }
+}
+
+@keyframes words {
+    0%, 33% {
+        content: "Web Developer";
+    }
+    34%, 66% {
+        content: "Backend Developer";
+    }
+    67%, 100% {
+        content: "AI/ML Engineer";
+    }
+}
+
+@media (max-width: 1000px) {
+    .home {
+        gap: 4rem;
+    }
+}
+
+@media(max-width:995px) {
+    .home {
+        flex-direction: column;
+        margin: 5rem 4rem;
+    }
+
+    .home .home-content h3 {
+        font-size: 2.5rem;
+    }
+
+    .home-content h1 {
+        font-size: 5rem;
+    }
+
+    .home-img img {
+        width: 70vw;
+        margin-top: 4rem;
+    }
+}
+
+/*==========================
+        SERVICES
+===========================*/
+
+.services {
+    min-height: 100vh;
+    background: #FAF8F5;
+    padding-top: 12rem;
+}
+
+.heading {
+    text-align: center;
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    color: #2a241b;
+}
+
+.service-text {
+    text-align: center;
+    font-size: 1.8rem;
+    max-width: 750px;
+    margin: 0 auto 6rem;
+    color: #5c5243;
+}
+
+.service-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.service-box {
+    background: #F0EBE1;
+    border: 2px solid rgba(202, 163, 117, 0.15);
+    padding: 4rem 3rem;
+    border-radius: 20px;
+    text-align: center;
+    transition: .4s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.service-box:hover {
+    border-color: #caa375;
+    transform: translateY(-12px);
+    box-shadow: 0 10px 25px rgba(202, 163, 117, 0.15);
+}
+
+.service-box i {
+    font-size: 5rem;
+    color: #caa375;
+    margin-bottom: 2rem;
+}
+
+.service-box h3 {
+    font-size: 2.6rem;
+    margin-bottom: 1.5rem;
+    color: #2a241b;
+}
+
+.service-box p {
+    font-size: 1.6rem;
+    color: #5c5243;
+    line-height: 1.7;
+}

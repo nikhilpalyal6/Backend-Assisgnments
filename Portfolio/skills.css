@@ -1,0 +1,489 @@
+/*==============================
+        SKILLS PAGE
+===============================*/
+
+.skills {
+    min-height: 100vh;
+    background: #FAF8F5;
+    position: relative;
+    overflow: hidden;
+    padding: 12rem 9% 6rem;
+}
+
+/* High-tech blueprint grid overlay on light background */
+.skills::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(202, 163, 117, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(202, 163, 117, 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.55;
+}
+
+/* Background Glow */
+.background-glow {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    background: #caa375;
+    filter: blur(250px);
+    opacity: .07;
+    left: 50%;
+    top: -250px;
+    transform: translateX(-50%);
+    animation: bgMove 10s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: 2;
+}
+
+@keyframes bgMove {
+    from {
+        transform: translateX(-50%) scale(1);
+    }
+    to {
+        transform: translateX(-50%) scale(1.3);
+    }
+}
+
+/*==============================
+        HEADER
+===============================*/
+
+.skills-header {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 55px;
+}
+
+.skills-header h1 {
+    font-size: 6rem;
+    font-weight: 700;
+    color: #2a241b;
+    margin-bottom: 15px;
+}
+
+.skills-header p {
+    width: 700px;
+    max-width: 90%;
+    margin: auto;
+    font-size: 1.8rem;
+    color: #5c5243;
+    line-height: 1.8;
+}
+
+/*==============================
+   INTERACTIVE DEVELOPER DASHBOARD
+===============================*/
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    background: #F0EBE1;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(202, 163, 117, 0.2);
+    border-radius: 25px;
+    overflow: hidden;
+    max-width: 1050px;
+    margin: 50px auto 80px;
+    box-shadow: 0 15px 40px rgba(202, 163, 117, 0.1);
+    position: relative;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.dashboard-container:hover {
+    border-color: rgba(202, 163, 117, 0.4);
+    box-shadow: 0 15px 45px rgba(202, 163, 117, 0.15);
+}
+
+/* Sidebar Tab Pane */
+.dashboard-tabs {
+    background: rgba(202, 163, 117, 0.05);
+    border-right: 1px solid rgba(202, 163, 117, 0.12);
+    padding: 30px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tab-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 14px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #5c5243;
+    font-size: 1.55rem;
+    font-weight: 500;
+    border: 1px solid transparent;
+}
+
+.tab-item i {
+    font-size: 1.8rem;
+    transition: transform 0.3s ease;
+}
+
+.tab-item:hover {
+    background: rgba(202, 163, 117, 0.08);
+    color: #2a241b;
+}
+
+.tab-item:hover i {
+    transform: scale(1.1);
+}
+
+.tab-item.active {
+    background: rgba(202, 163, 117, 0.15);
+    border-color: rgba(202, 163, 117, 0.25);
+    color: #caa375;
+    box-shadow: 0 5px 15px rgba(202, 163, 117, 0.05);
+}
+
+/* Right Side - Dashboard Content */
+.dashboard-content {
+    padding: 45px 50px;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: transparent;
+}
+
+.content-pane {
+    display: none;
+    animation: slideUp 0.4s ease forwards;
+}
+
+.content-pane.active {
+    display: block;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content-pane h3 {
+    font-size: 2.6rem;
+    color: #2a241b;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.content-pane p {
+    font-size: 1.5rem;
+    color: #5c5243;
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+
+/* Skills Progress Lines */
+.skills-progress-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.progress-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.6rem;
+    color: #2a241b;
+    font-weight: 500;
+}
+
+.progress-line {
+    width: 100%;
+    height: 8px;
+    background: #e3ded7;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(202, 163, 117, 0.1);
+}
+
+.progress-line span {
+    display: block;
+    height: 100%;
+    background: #caa375;
+    border-radius: 5px;
+    box-shadow: 0 0 12px rgba(202, 163, 117, 0.4);
+    width: 0;
+    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.content-pane.active .progress-line span {
+    width: var(--w);
+}
+
+/*==============================
+      SECTION TITLE
+===============================*/
+
+.section-title {
+    text-align: center;
+    margin: 80px 0 50px;
+    position: relative;
+    z-index: 10;
+}
+
+.section-title h2 {
+    font-size: 4rem;
+    color: #2a241b;
+    position: relative;
+}
+
+.section-title h2::after {
+    content: "";
+    width: 90px;
+    height: 4px;
+    background: #caa375;
+    display: block;
+    margin: 18px auto;
+    border-radius: 20px;
+    box-shadow: 0 0 15px #caa375;
+}
+
+/*==============================
+            STATS
+===============================*/
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 100px;
+    position: relative;
+    z-index: 10;
+}
+
+.stat-box {
+    background: #F0EBE1;
+    border: 2px solid rgba(202, 163, 117, 0.15);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    transition: .35s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.stat-box:hover {
+    border-color: #caa375;
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(202, 163, 117, 0.15);
+}
+
+.stat-box h1 {
+    font-size: 5rem;
+    color: #caa375;
+}
+
+.stat-box p {
+    margin-top: 10px;
+    font-size: 1.8rem;
+    color: #2a241b;
+}
+
+/*==============================
+          MARQUEE
+===============================*/
+
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+    border-top: 1px solid rgba(202, 163, 117, 0.15);
+    border-bottom: 1px solid rgba(202, 163, 117, 0.15);
+    margin-bottom: 120px;
+    position: relative;
+    z-index: 10;
+}
+
+.track {
+    display: flex;
+    width: max-content;
+    animation: marquee 22s linear infinite;
+}
+
+.track span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 60px;
+    font-size: 2rem;
+    color: #2a241b;
+}
+
+.track i {
+    color: #caa375;
+    font-size: 2.4rem;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/*==============================
+            CTA
+===============================*/
+
+.cta {
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+    position: relative;
+    z-index: 10;
+}
+
+.cta h2 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: #2a241b;
+}
+
+.cta p {
+    font-size: 1.8rem;
+    color: #5c5243;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.cta .btn {
+    display: inline-block;
+    padding: 15px 45px;
+    border: 2px solid #caa375;
+    border-radius: 50px;
+    color: #caa375;
+    font-size: 1.8rem;
+    transition: .35s;
+    background: transparent;
+}
+
+.cta .btn:hover {
+    background: #caa375;
+    color: #FAF8F5;
+    box-shadow: 0 0 30px #caa375;
+    transform: translateY(-5px);
+}
+
+/*==============================
+        RESPONSIVE
+===============================*/
+
+@media(max-width:995px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+        margin: 40px auto 60px;
+    }
+
+    .dashboard-tabs {
+        flex-direction: row;
+        overflow-x: auto;
+        border-right: none;
+        border-bottom: 1px solid rgba(202, 163, 117, 0.12);
+        padding: 20px;
+        gap: 15px;
+        scroll-behavior: smooth;
+        scrollbar-width: none; /* Firefox */
+    }
+
+    .dashboard-tabs::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
+
+    .tab-item {
+        flex-shrink: 0;
+        padding: 12px 18px;
+    }
+
+    .dashboard-content {
+        padding: 35px 30px;
+        min-height: auto;
+    }
+}
+
+@media(max-width:900px) {
+    .skills-header h1 {
+        font-size: 4.5rem;
+    }
+    
+    .section-title h2 {
+        font-size: 3rem;
+    }
+}
+
+@media(max-width:600px) {
+    .skills {
+        padding: 10rem 5%;
+    }
+    
+    .skills-header p {
+        font-size: 1.6rem;
+    }
+
+    .tab-item {
+        font-size: 1.4rem;
+        padding: 10px 14px;
+        gap: 10px;
+    }
+
+    .dashboard-content {
+        padding: 25px 20px;
+    }
+
+    .content-pane h3 {
+        font-size: 2.1rem;
+    }
+
+    .progress-label {
+        font-size: 1.4rem;
+    }
+    
+    .stat-box h1 {
+        font-size: 3.5rem;
+    }
+    
+    .track span {
+        font-size: 1.5rem;
+        margin-right: 35px;
+    }
+    
+    .track i {
+        font-size: 2rem;
+    }
+    
+    .cta h2 {
+        font-size: 3rem;
+    }
+    
+    .cta p {
+        font-size: 1.6rem;
+    }
+}
